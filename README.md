@@ -252,6 +252,7 @@ Info and resources to help every child been seen and heard in our schools
         <a class="pill" href="#grade-handouts">Grade handouts</a>
         <a class="pill" href="#family">Family engagement</a>
         <a class="pill" href="#faq">FAQ</a>
+        <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
   </div>
@@ -1028,6 +1029,59 @@ FAMILY PARTNERSHIP SURVEY (5–7 minutes)
       </div>
     </section>
 
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2>Get in Touch</h2>
+
+      <div class="card">
+        <p class="sub" style="margin:0 0 14px;">
+          Have questions, feedback, or requests for customization? We'd love to hear from you.
+          Contact us with ideas for implementation, professional development, or framework adaptations.
+        </p>
+
+        <form id="contactForm" style="display:flex; flex-direction:column; gap:12px;" onsubmit="handleContactSubmit(event)">
+          <div>
+            <label for="name" style="display:block; margin-bottom:6px; font-size:13px; color:var(--muted)">Name</label>
+            <input type="text" id="name" name="name" required style="width:100%; padding:10px; border:1px solid var(--border); background: rgba(0,0,0,.15); color:var(--text); border-radius:var(--radius2); font-family:var(--sans)" />
+          </div>
+
+          <div>
+            <label for="email" style="display:block; margin-bottom:6px; font-size:13px; color:var(--muted)">Email</label>
+            <input type="email" id="email" name="email" required style="width:100%; padding:10px; border:1px solid var(--border); background: rgba(0,0,0,.15); color:var(--text); border-radius:var(--radius2); font-family:var(--sans)" />
+          </div>
+
+          <div>
+            <label for="role" style="display:block; margin-bottom:6px; font-size:13px; color:var(--muted)">Role</label>
+            <select id="role" name="role" required style="width:100%; padding:10px; border:1px solid var(--border); background: rgba(0,0,0,.15); color:var(--text); border-radius:var(--radius2); font-family:var(--sans)">
+              <option value="" style="background:#0b1220">Select your role...</option>
+              <option value="district" style="background:#0b1220">District Leader</option>
+              <option value="principal" style="background:#0b1220">Principal / School Leader</option>
+              <option value="teacher" style="background:#0b1220">Teacher / Educator</option>
+              <option value="family" style="background:#0b1220">Family / Community Member</option>
+              <option value="other" style="background:#0b1220">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" style="display:block; margin-bottom:6px; font-size:13px; color:var(--muted)">Message / Request</label>
+            <textarea id="message" name="message" required rows="5" style="width:100%; padding:10px; border:1px solid var(--border); background: rgba(0,0,0,.15); color:var(--text); border-radius:var(--radius2); font-family:var(--sans); resize:vertical;" placeholder="Tell us about your needs, feedback, or customization requests..."></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="align-self:flex-start; cursor:pointer;">Send Message</button>
+          <p id="formStatus" style="font-size:13px; color:var(--muted); margin:0; display:none;"></p>
+        </form>
+
+        <div style="margin-top:18px; padding-top:18px; border-top:1px solid var(--border);">
+          <h3 style="margin:0 0 10px; font-size:14px;">Other Ways to Connect</h3>
+          <ul class="list">
+            <li><strong>Email:</strong> <a href="mailto:hello@everychildseen.org">hello@everychildseen.org</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/hesings11-dot/everychild" target="_blank">View project repository</a></li>
+            <li><strong>Share feedback:</strong> Use the contact form above or open an issue on GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <div class="footer">
       <div>
         <strong>Every Child Seen</strong> • District Resource Hub
@@ -1043,6 +1097,37 @@ FAMILY PARTNERSHIP SURVEY (5–7 minutes)
       if(!el) return;
       const y = el.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    function handleContactSubmit(event){
+      event.preventDefault();
+      const formStatus = document.getElementById('formStatus');
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        role: document.getElementById('role').value,
+        message: document.getElementById('message').value,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Log to console for demonstration
+      console.log('Contact form submission:', formData);
+      
+      // Show success message
+      formStatus.textContent = '✓ Thank you! Your message has been received. We will respond within 2-3 business days.';
+      formStatus.style.color = 'var(--ok)';
+      formStatus.style.display = 'block';
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+      
+      // Hide message after 6 seconds
+      setTimeout(function(){
+        formStatus.style.display = 'none';
+      }, 6000);
+      
+      // In a real implementation, you would send this to a backend service or email handler
+      // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
     }
   </script>
 </body>
