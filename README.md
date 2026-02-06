@@ -252,6 +252,7 @@ Info and resources to help every child been seen and heard in our schools
         <a class="pill" href="#grade-handouts">Grade handouts</a>
         <a class="pill" href="#family">Family engagement</a>
         <a class="pill" href="#faq">FAQ</a>
+        <a class="pill" href="#about">About</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
@@ -1026,6 +1027,40 @@ FAMILY PARTNERSHIP SURVEY (5–7 minutes)
             <li>Engagement improves (attendance/on-track) and disproportionality decreases.</li>
           </ul>
         </details>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2>About</h2>
+
+      <div class="card">
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex:1;">
+            <h3 style="margin:0 0 8px; font-size:16px;">Phil Edwards</h3>
+            <p class="sub" style="margin:0 0 10px;">Administrative Intern</p>
+            <p style="margin:0 0 14px; line-height:1.6;">
+              Phil Edwards is an Administrative Intern who supports the development and implementation of the 
+              <strong>Every Child Seen</strong> framework. Committed to equity-centered education and belonging 
+              for all learners, Phil works to make these research-backed practices accessible and actionable for 
+              K-12 districts.
+            </p>
+            <ul class="list">
+              <li>Building implementation-ready resources for district leaders, principals, and teachers</li>
+              <li>Supporting data-driven, culturally responsive MTSS frameworks</li>
+              <li>Creating accessible tools for measuring belonging and access in schools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:18px; padding-top:18px; border-top:1px solid var(--border);">
+          <h3 style="margin:0 0 10px; font-size:14px;">Get Involved</h3>
+          <p class="sub">
+            This project welcomes feedback, contributions, and collaboration. Whether you're a district leader 
+            piloting the framework or an educator implementing routines, we'd love to hear from you.
+          </p>
+          <button class="btn" onclick="scrollToId('contact')" style="cursor:pointer; margin-top:8px;">Send Feedback</button>
+        </div>
       </div>
     </section>
 
